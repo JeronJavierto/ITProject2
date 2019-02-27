@@ -1,3 +1,20 @@
 <?php
-	include('DBConnector.php');	
+	include('DBConnector.php');
+
+	$Fname = mysqli_real_escape_string($conn, $_REQUEST['FName']);
+	$Lname = mysqli_real_escape_string($conn, $_REQUEST['LName']);
+	$email = mysqli_real_escape_string($conn, $_REQUEST['email']);
+	$org = mysqli_real_escape_string($conn, $_REQUEST['organization']);
+	$pos = mysqli_real_escape_string($conn, $_REQUEST['position']);
+	$password = mysqli_real_escape_string($conn, $_REQUEST['Password']);
+	$ConPassword = mysqli_real_escape_string($conn, $_REQUEST['ConPassword']);
+
+	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', 'password')";
+
+	if (mysqli_query($conn, $insertQuery)) {
+		# code...
+		echo("registration complete!");
+	}else{
+		echo (mysqli_connect_error());
+	}
 ?>
