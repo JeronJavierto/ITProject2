@@ -9,11 +9,16 @@
 	$password = mysqli_real_escape_string($conn, $_REQUEST['Password']);
 	$ConPassword = mysqli_real_escape_string($conn, $_REQUEST['ConPassword']);
 
-	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', 'password')";
+	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
 
 	if (mysqli_query($conn, $insertQuery)) {
 		# code...
-		echo("registration complete!");
+		if ($password != $ConPassword) {
+			# code...
+			$msg =  "Password didn't matched!";
+			// include("../")
+		}
+		
 	}else{
 		echo (mysqli_connect_error());
 	}
