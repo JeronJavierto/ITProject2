@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2019 at 02:42 PM
+-- Generation Time: Mar 05, 2019 at 12:54 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -88,6 +88,17 @@ INSERT INTO `facility` (`FacID`, `facilityName`, `room`, `roomType`, `descriptio
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `Client_id` int(255) NOT NULL,
+  `department` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `offices`
 --
 
@@ -143,6 +154,40 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`SerID`, `typeOfService`) VALUES
 (1, 'Janitor'),
 (2, 'Security Guard');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `Client_id` int(255) NOT NULL,
+  `shool_org` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `third_party`
+--
+
+CREATE TABLE `third_party` (
+  `Client_id` int(255) NOT NULL,
+  `organization` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`Client_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
