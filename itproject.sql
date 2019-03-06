@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2019 at 12:54 PM
+-- Generation Time: Mar 06, 2019 at 07:39 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`Client_id`, `ResID`, `first_name`, `last_name`, `email`, `password`) VALUES
-(1, 1, 'Jeron', 'Javierto', 'Jeron@gmail.com', '12345');
+(1, 1, 'Jeron', 'Javierto', 'Jeron@gmail.com', '12345'),
+(2, 2, 'Jericho', 'Rosal', 'jerichodave@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,17 @@ CREATE TABLE `equipment` (
 
 INSERT INTO `equipment` (`EquipID`, `equipName`) VALUES
 (1, 'chairs'),
-(2, 'microphone');
+(2, 'microphone'),
+(3, 'Platforms'),
+(4, 'Table'),
+(5, 'Triboard'),
+(6, 'Divider'),
+(7, 'microphones'),
+(8, 'Mic Stand'),
+(9, 'Karaoke'),
+(10, 'Projectors'),
+(11, 'Sound System'),
+(12, 'TV/DVD');
 
 -- --------------------------------------------------------
 
@@ -83,7 +94,11 @@ CREATE TABLE `facility` (
 --
 
 INSERT INTO `facility` (`FacID`, `facilityName`, `room`, `roomType`, `description`, `capacity`) VALUES
-(1, 'Amphitheater', 'Amphitheater', 'Stage Area', 'Amphitheater', 1000);
+(1, 'Amphitheater', 'Amphitheater', 'Stage Area', 'Amphitheater', 1000),
+(2, 'Oval', 'Oval', 'Court', 'Volley Ball/Tennis Court', 0),
+(3, 'Oval', 'Oval', 'Court', 'Basketball Court', 0),
+(4, 'Mezzanine ', 'Mezzanine', 'Others', 'Library Reading Area/Testing Area', 300),
+(5, 'Plaza', 'Plaza', 'Others', 'Devesse Plaza', 1000);
 
 -- --------------------------------------------------------
 
@@ -113,7 +128,9 @@ CREATE TABLE `offices` (
 --
 
 INSERT INTO `offices` (`office_id`, `officeName`, `person_in_charge`) VALUES
-(1, 'Student Affairs Office', 'Andrew Macalma');
+(1, 'Student Affairs Office', 'Andrew Macalma'),
+(3, 'Custodian\'s Office', 'Delfin Tokyas'),
+(4, 'Dean\'s Office', 'April Gumnad');
 
 -- --------------------------------------------------------
 
@@ -134,7 +151,10 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`ResID`, `resDate`, `startTime`, `endTime`, `resStatus`) VALUES
-(1, '2018-11-07', '04:00:00.000000', '06:00:00.000000', '');
+(1, '2018-11-07', '04:00:00.000000', '06:00:00.000000', ''),
+(2, '2018-11-08', '11:30:00.000000', '12:30:00.000000', ''),
+(3, '2018-11-17', '01:00:00.000000', '04:00:00.000000', ''),
+(4, '2018-11-20', '02:00:00.000000', '05:00:00.000000', '');
 
 -- --------------------------------------------------------
 
@@ -153,7 +173,8 @@ CREATE TABLE `services` (
 
 INSERT INTO `services` (`SerID`, `typeOfService`) VALUES
 (1, 'Janitor'),
-(2, 'Security Guard');
+(2, 'Security Guard'),
+(3, 'Staff');
 
 -- --------------------------------------------------------
 
