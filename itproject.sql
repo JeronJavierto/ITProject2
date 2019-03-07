@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 07, 2019 at 01:06 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 07, 2019 at 12:35 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,22 +28,25 @@ SET time_zone = "+00:00";
 -- Table structure for table `client`
 --
 
-CREATE TABLE `client` (
-  `Client_id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `Client_id` int(255) NOT NULL AUTO_INCREMENT,
   `ResID` int(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL,
+  `client_type` varchar(15) NOT NULL,
+  PRIMARY KEY (`Client_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`Client_id`, `ResID`, `first_name`, `last_name`, `email`, `password`) VALUES
-(1, 1, 'Jeron', 'Javierto', 'Jeron@gmail.com', '12345'),
-(2, 2, 'Jericho', 'Rosal', 'jerichodave@gmail.com', '1234');
+INSERT INTO `client` (`Client_id`, `ResID`, `first_name`, `last_name`, `email`, `password`, `client_type`) VALUES
+(1, 1, 'Jeron', 'Javierto', 'Jeron@gmail.com', '12345', 'student'),
+(2, 2, 'Jericho', 'Rosal', 'jerichodave@gmail.com', '1234', 'teacher');
 
 -- --------------------------------------------------------
 
@@ -51,10 +54,12 @@ INSERT INTO `client` (`Client_id`, `ResID`, `first_name`, `last_name`, `email`, 
 -- Table structure for table `equipment`
 --
 
-CREATE TABLE `equipment` (
-  `EquipID` int(255) NOT NULL,
-  `equipName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `equipment`;
+CREATE TABLE IF NOT EXISTS `equipment` (
+  `EquipID` int(255) NOT NULL AUTO_INCREMENT,
+  `equipName` varchar(255) NOT NULL,
+  PRIMARY KEY (`EquipID`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `equipment`
@@ -80,14 +85,16 @@ INSERT INTO `equipment` (`EquipID`, `equipName`) VALUES
 -- Table structure for table `facility`
 --
 
-CREATE TABLE `facility` (
-  `FacID` int(255) NOT NULL,
+DROP TABLE IF EXISTS `facility`;
+CREATE TABLE IF NOT EXISTS `facility` (
+  `FacID` int(255) NOT NULL AUTO_INCREMENT,
   `facilityName` varchar(255) NOT NULL,
   `room` varchar(255) NOT NULL,
   `roomType` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `capacity` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `capacity` int(255) NOT NULL,
+  PRIMARY KEY (`FacID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `facility`
@@ -103,25 +110,16 @@ INSERT INTO `facility` (`FacID`, `facilityName`, `room`, `roomType`, `descriptio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faculty`
---
-
-CREATE TABLE `faculty` (
-  `Client_id` int(255) NOT NULL,
-  `department` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `offices`
 --
 
-CREATE TABLE `offices` (
-  `office_id` int(255) NOT NULL,
+DROP TABLE IF EXISTS `offices`;
+CREATE TABLE IF NOT EXISTS `offices` (
+  `office_id` int(255) NOT NULL AUTO_INCREMENT,
   `officeName` varchar(255) NOT NULL,
-  `person_in_charge` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `person_in_charge` varchar(255) NOT NULL,
+  PRIMARY KEY (`office_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `offices`
@@ -138,13 +136,15 @@ INSERT INTO `offices` (`office_id`, `officeName`, `person_in_charge`) VALUES
 -- Table structure for table `reservation`
 --
 
-CREATE TABLE `reservation` (
-  `ResID` int(255) NOT NULL,
+DROP TABLE IF EXISTS `reservation`;
+CREATE TABLE IF NOT EXISTS `reservation` (
+  `ResID` int(255) NOT NULL AUTO_INCREMENT,
   `resDate` date NOT NULL,
   `startTime` time(6) NOT NULL,
   `endTime` time(6) NOT NULL,
-  `resStatus` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `resStatus` varchar(255) NOT NULL,
+  PRIMARY KEY (`ResID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservation`
@@ -162,10 +162,12 @@ INSERT INTO `reservation` (`ResID`, `resDate`, `startTime`, `endTime`, `resStatu
 -- Table structure for table `services`
 --
 
-CREATE TABLE `services` (
-  `SerID` int(255) NOT NULL,
-  `typeOfService` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE IF NOT EXISTS `services` (
+  `SerID` int(255) NOT NULL AUTO_INCREMENT,
+  `typeOfService` varchar(255) NOT NULL,
+  PRIMARY KEY (`SerID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services`
@@ -175,146 +177,6 @@ INSERT INTO `services` (`SerID`, `typeOfService`) VALUES
 (1, 'Janitor'),
 (2, 'Security Guard'),
 (3, 'Staff');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
-
-CREATE TABLE `student` (
-  `Client_id` int(255) NOT NULL,
-  `shool_org` varchar(255) NOT NULL,
-  `position` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `third_party`
---
-
-CREATE TABLE `third_party` (
-  `Client_id` int(255) NOT NULL,
-  `organization` varchar(255) NOT NULL,
-  `position` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `client`
---
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`Client_id`);
-
---
--- Indexes for table `equipment`
---
-ALTER TABLE `equipment`
-  ADD PRIMARY KEY (`EquipID`);
-
---
--- Indexes for table `facility`
---
-ALTER TABLE `facility`
-  ADD PRIMARY KEY (`FacID`);
-
---
--- Indexes for table `faculty`
---
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`Client_id`);
-
---
--- Indexes for table `offices`
---
-ALTER TABLE `offices`
-  ADD PRIMARY KEY (`office_id`);
-
---
--- Indexes for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`ResID`);
-
---
--- Indexes for table `services`
---
-ALTER TABLE `services`
-  ADD PRIMARY KEY (`SerID`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`Client_id`);
-
---
--- Indexes for table `third_party`
---
-ALTER TABLE `third_party`
-  ADD PRIMARY KEY (`Client_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `client`
---
-ALTER TABLE `client`
-  MODIFY `Client_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `equipment`
---
-ALTER TABLE `equipment`
-  MODIFY `EquipID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `facility`
---
-ALTER TABLE `facility`
-  MODIFY `FacID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `faculty`
---
-ALTER TABLE `faculty`
-  MODIFY `Client_id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `offices`
---
-ALTER TABLE `offices`
-  MODIFY `office_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `ResID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `services`
---
-ALTER TABLE `services`
-  MODIFY `SerID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `Client_id` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `third_party`
---
-ALTER TABLE `third_party`
-  MODIFY `Client_id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
