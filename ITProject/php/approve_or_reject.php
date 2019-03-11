@@ -16,22 +16,22 @@
 		</tr>
 <?php
 	
-	$sql = "SELECT resID.reservation, Client_id.client, Event.reservation FROM client join reservation ON reservation.ResID=client.ResID";
+	$sql = "SELECT r.resID, c.Client_ID, r.Event FROM reservation r JOIN client c ON c.ResID=r.ResID";
 	// $sql = "SELECT * FROM client";	
 
 	$result = $conn-> query($sql);
 
-	if ($conn->query($sql	) === TRUE){
+	if ($result-> num_rows > 0){
 		while ($row = $result-> fetch_assoc()){
 			echo "<tr>
 					<td>" . $row["resID"] . "</td>
 					<td>" . $row["Client_ID"] . "</td>
-					<td>" . $row["Event"] . "</td>					
+					<td>" . $row["Event"] . "</td>								
 				  </tr>";
 		}
 		echo "</table>";
 	}else{
-		echo "0 result";
+		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn-> close();
