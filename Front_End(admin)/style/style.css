@@ -41,19 +41,33 @@ ul.menu{
 li.home{
 	float: left;
 	margin-right: -450px;
-	margin-left: 450px;
+	margin-left: 315px;
 }
 li.events{
 	float: left;
 	margin-right: -450px;
-	margin-left: 450px;
+	margin-left: 395px;
 }
 li.faci{
 	float: left;
 	margin-right: -450px;
 	margin-left: 450px;
 }
-
+li.reser{
+  float: left;
+  margin-right: -450px;
+  margin-left: 450px;
+}
+li.req{
+  float: left;
+  margin-right: -450px;
+  margin-left: 450px;
+}
+li.rep{
+  float: left;
+  margin-right: -450px;
+  margin-left: 450px;
+}
 li a.home{
 	display: block;
 	color: black;
@@ -79,6 +93,33 @@ li a.faci{
 	padding: 14px 16px;
 	text-decoration: none;
 	font-style: bold;
+
+}
+li a.reser{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-style: bold;
+
+}
+li a.req{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-style: bold;
+
+}
+li a.rep{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-style: bold;
 
 }
 li a:hover {
