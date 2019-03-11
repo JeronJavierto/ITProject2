@@ -8,12 +8,13 @@
 	$TimeStart = mysqli_real_escape_string($conn, $_REQUEST['TimeStart']);
 	$TimeEnd = mysqli_real_escape_string($conn, $_REQUEST['TimeEnd']);
 
-	$insertQuery = "INSERT INTO reservation ('DepOrg', 'Event', 'Venue', 'Date', 'TimeStart', 'TimeEnd') VALUES ('$DepOrg', '$Event', '$Venue', '$Date', '$TimeStart', '$TimeEnd')";
+	$insertQuery = "INSERT INTO reservation (DepOrg, Event, Venue, Date, TimeStart, TimeEnd) VALUES ('$DepOrg', '$Event', '$Venue', '$Date', '$TimeStart', '$TimeEnd')";
 
-	if (mysqli_query($conn, $insertQuery)) {
-		# code...
-		echo("Successful");
-	}else{
-		echo ("asd");
+	if ($conn->query($insertQuery) === TRUE) {
+	    echo "Reservation Complete";
+	} else {
+	    echo "Error: " . $insertQuery . "<br>" . $conn->error;
 	}
+
+	$conn->close();
 ?>
