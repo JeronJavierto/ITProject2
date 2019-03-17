@@ -136,7 +136,7 @@ div#sc-edprofile input[type="text"],
 div#sc-edprofile input[type="password"], 
 div#sc-edprofile select, 
 div#sc-edprofile textarea {
-  width: 100%;
+  width: 92%;
   background: #fff;
   margin-bottom: 4%;
   border: 1px solid #ccc;
