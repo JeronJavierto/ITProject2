@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
 	<title>profile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../style/style.css">
+	<link rel="stylesheet" type="text/css" href="../style/style1.css">
 	<h1>FACILITY RESERVATION SYSTEM</h1>
 </head>
 <body>
@@ -48,55 +47,3 @@ function filterFunction() {
 </script> 
 
 </body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-	<title>profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../style/style.css">
-	<h1>FACILITY RESERVATION SYSTEM</h1>
-</head>
-<body>
-	<ul class="menu">
-		<li class="home"><a href="" class="home">HOME</a></li>
-		<li class="events"><a href="" class="events">EVENTS</a></li>
-		<li class="faci"><a href="" class="faci">FACILITIES</a></li>
-	</ul>
-	
-	<div class="dropdown">
-	  <button onclick="myFunction()" class="dropbtn">Juan Dela Cruz &nbsp<i class="down"></i></button>
-	  <div id="myDropdown" class="dropdown-content">
-	  	<a href="about.html">About</a>
-		<a href="editProfile.html">Edit Profile</a>
-		<a href="signOut">Sign Out</a>
-	  </div>
-	</div>
-
-<script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
- }
-</script> 
-
-</body>
->>>>>>> 048bc123ea1150879e9731ba221f4c5ce8cdae15
-</html>
