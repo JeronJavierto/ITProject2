@@ -11,15 +11,20 @@
 
 	$insertQuery = "INSERT INTO client (First_name, Last_name, email, Organization, position, password) VALUES ('$Fname', '$Lname', '$email', '$org', '$pos', '$password')";
 
-	if (mysqli_query($conn, $insertQuery)) {
+	if ($password == $ConPassword) {
 		# code...
-		if ($password != $ConPassword) {
-			# code...
-			$msg =  "Password didn't matched!";
-			// include("../")
-		}
+		echo("Done!");
 		
+		// include("../")
+		if (mysqli_query($conn, $insertQuery)) {
+			# code...
+			
+			
+			
+		}else{
+			echo (mysqli_connect_error());
+		}
 	}else{
-		echo (mysqli_connect_error());
+		echo("Password didn't matched");
 	}
 ?>
