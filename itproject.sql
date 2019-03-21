@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 07, 2019 at 12:35 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.14
+-- Host: 127.0.0.1
+-- Generation Time: Mar 21, 2019 at 08:53 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `itproject`
@@ -25,10 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminID` int(10) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`adminID`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminID`, `first_name`, `last_name`, `email`, `password`) VALUES
+(1, 'Delfin', 'Tokyas', 'deltokz@slu.edu.ph', '1234');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `client`
 --
 
-DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
   `Client_id` int(255) NOT NULL AUTO_INCREMENT,
   `ResID` int(255) NOT NULL,
@@ -38,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `password` varchar(255) NOT NULL,
   `client_type` varchar(15) NOT NULL,
   PRIMARY KEY (`Client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `client`
@@ -54,12 +74,11 @@ INSERT INTO `client` (`Client_id`, `ResID`, `first_name`, `last_name`, `email`, 
 -- Table structure for table `equipment`
 --
 
-DROP TABLE IF EXISTS `equipment`;
 CREATE TABLE IF NOT EXISTS `equipment` (
   `EquipID` int(255) NOT NULL AUTO_INCREMENT,
   `equipName` varchar(255) NOT NULL,
   PRIMARY KEY (`EquipID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `equipment`
@@ -85,7 +104,6 @@ INSERT INTO `equipment` (`EquipID`, `equipName`) VALUES
 -- Table structure for table `facility`
 --
 
-DROP TABLE IF EXISTS `facility`;
 CREATE TABLE IF NOT EXISTS `facility` (
   `FacID` int(255) NOT NULL AUTO_INCREMENT,
   `facilityName` varchar(255) NOT NULL,
@@ -94,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `facility` (
   `description` varchar(255) NOT NULL,
   `capacity` int(255) NOT NULL,
   PRIMARY KEY (`FacID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `facility`
@@ -113,13 +131,12 @@ INSERT INTO `facility` (`FacID`, `facilityName`, `room`, `roomType`, `descriptio
 -- Table structure for table `offices`
 --
 
-DROP TABLE IF EXISTS `offices`;
 CREATE TABLE IF NOT EXISTS `offices` (
   `office_id` int(255) NOT NULL AUTO_INCREMENT,
   `officeName` varchar(255) NOT NULL,
   `person_in_charge` varchar(255) NOT NULL,
   PRIMARY KEY (`office_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `offices`
@@ -127,8 +144,8 @@ CREATE TABLE IF NOT EXISTS `offices` (
 
 INSERT INTO `offices` (`office_id`, `officeName`, `person_in_charge`) VALUES
 (1, 'Student Affairs Office', 'Andrew Macalma'),
-(3, 'Custodian\'s Office', 'Delfin Tokyas'),
-(4, 'Dean\'s Office', 'April Gumnad');
+(3, 'Custodian''s Office', 'Delfin Tokyas'),
+(4, 'Dean''s Office', 'April Gumnad');
 
 -- --------------------------------------------------------
 
@@ -136,7 +153,6 @@ INSERT INTO `offices` (`office_id`, `officeName`, `person_in_charge`) VALUES
 -- Table structure for table `reservation`
 --
 
-DROP TABLE IF EXISTS `reservation`;
 CREATE TABLE IF NOT EXISTS `reservation` (
   `ResID` int(255) NOT NULL AUTO_INCREMENT,
   `resDate` date NOT NULL,
@@ -144,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `endTime` time(6) NOT NULL,
   `resStatus` varchar(255) NOT NULL,
   PRIMARY KEY (`ResID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `reservation`
@@ -162,12 +178,11 @@ INSERT INTO `reservation` (`ResID`, `resDate`, `startTime`, `endTime`, `resStatu
 -- Table structure for table `services`
 --
 
-DROP TABLE IF EXISTS `services`;
 CREATE TABLE IF NOT EXISTS `services` (
   `SerID` int(255) NOT NULL AUTO_INCREMENT,
   `typeOfService` varchar(255) NOT NULL,
   PRIMARY KEY (`SerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `services`
@@ -177,7 +192,6 @@ INSERT INTO `services` (`SerID`, `typeOfService`) VALUES
 (1, 'Janitor'),
 (2, 'Security Guard'),
 (3, 'Staff');
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
