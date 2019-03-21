@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    
+<style>
+#a{
+  border: 1px;
+  width: 400px;
+  background-color: darkblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left:2px;
+  color: white;
+  font-size: 20px;
+}
+
+#example2 {
+  background-color: white;
+  width: 662px;
+  height: 500px;
+  padding: 30px;  
+  border: 40px solid lightgrey;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=reserve] {
+  width: 10%;
+  background-color: Green;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+input[type=reserve]:hover {
+  background-color: Green;
+}
+
+
+</style>
+
+<body>
+
+<div class="a">Reservation</div>
+<div class="example2">Registration Form:<br>
+<form>
+    <label for="Org">Department/Organization:</label>
+    <input type="text" id="Org" name="org/dept" placeholder="Your department/organization...">
+
+    <label for="Vent">Event</label>
+    <input type="text" id="Vent" name="Evnt" placeholder="Event.. ">
+    
+    <label for="Ven">Venue</label>
+    <input type="text" id="Ven" name="Plaze" placeholder="Venue.. ">
+    
+    <label for="Dat">Date</label>
+    <input type="text" id="Dat" name="dt" placeholder="Date.. ">
+    
+    <label for="Tim">Time</label>
+    <input type="text" id="Tim" name="tm" placeholder="Time.. ">
+    
+    <input type="reserve" value="Reserve">
+    
+</form>
+
+</div>
+
+</body>
+</html>
