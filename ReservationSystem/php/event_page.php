@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>Events</title>
-	<link rel="stylesheet" href="../style/style3.css">
+	<link rel="stylesheet" href="../stylesheet/style3.css">
 </head>
 <body>
 	<table id="customers">

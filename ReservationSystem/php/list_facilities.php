@@ -6,9 +6,10 @@
 <html>
 <head>
 	<title>List of Facilities</title>
+	<link rel="stylesheet" href="../stylesheet/style3.css">
 </head>
 <body>
-	<table>
+	<table id="customers">
 		<tr>
 			<th>Level</th>
 			<th>Room</th>
