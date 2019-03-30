@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../style/style.css">
+	<h1>FACILITY RESERVATION SYSTEM</h1>
+	<h3><a href="" class="signup">SIGNUP</a></h3>
+</head>
+<body>
+	<ul class="menu">
+		<li class="home"><a href="" class="home">HOME</a></li>
+		<li class="events"><a href="" class="events">EVENTS</a></li>
+		<li class="faci"><a href="" class="faci">FACILITIES</a></li>
+	</ul>
+
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="loginB">LOGIN</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="signin_admin.php" method="GET">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">LOGIN</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</body>
+</html>
