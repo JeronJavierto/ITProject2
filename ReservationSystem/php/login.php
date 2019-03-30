@@ -1,6 +1,6 @@
 <?php
    include("DBConnector.php");
-   // session_start();
+   session_start();
    $error = "Your Email or Password is invalid";
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +22,7 @@
          $_SESSION['email'] = "email";
          $_SESSION['login_user'] = $myemail;
          
-         header("location: ../pages/admin/home.html");
+         header("location: ../pages/admin/home_admin.php");
       }else {
          echo $error;
       }

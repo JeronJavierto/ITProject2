@@ -13,7 +13,7 @@
 
 	if ($password == $ConPassword) {
 		# code...
-		header("location: ../pages/admin/home.html");
+		header("location: ../pages/admin/home_admin.html");
 		
 		// include("../")
 		if (mysqli_query($conn, $insertQuery)) {
