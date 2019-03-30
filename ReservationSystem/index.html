@@ -1,74 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet/style4.css">
-  <h1>FACILITY RESERVATION SYSTEM</h1>
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+	<h1>FACILITY RESERVATION SYSTEM</h1>
+
+
 </head>
 <body>
-  <ul class="menu">
-    <li class="home"><a href="index.html" class="home">HOME</a></li>
-    <li class="events"><a href="php/event_page.php" class="events">EVENTS</a></li>
-    <li class="faci"><a href="php/list_facilities.php" class="faci">FACILITIES</a></li>
-  </ul>
+	<ul class="menu">
+		<li class="home"><a href="index.html" class="home">HOME</a></li>
+		<li class="events"><a href="php/event_page.php" class="events">EVENTS</a></li>
+		<li class="faci"><a href="php/list_facilities.php" class="faci">FACILITIES</a></li>
+	</ul>
 
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="loginB">LOGIN</button>
-  <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" class="signupB">SIGN UP</button>
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="loginB">LOGIN</button>
 
-<div id="id01" class="loginmodal">
+<div id="id01" class="modal">
   
   <form class="modal-content animate" action="php/login.php" method="POST">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
-    <div class="logincontainer">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Username" name="email" required="">
 
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required="">
-        
-      <button type="submit">LOGIN</button>    
-    </div>
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>    
-    </div>
-  </form>
-</div>
-
-    <div id="id02" class="modal">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>  
-    
-<form class="modal-content" action="php/signup.php" method="POST">
     <div class="container">
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-      <label for="frstn">First Name</label>
-      <input type="text" placeholder="Enter First Name" name="FName" required="">
+      <label for="email"><b>Username</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
 
-      <label for="lstn">Last Name</label>
-      <input type="text" placeholder="Enter Last Name" name="LName" required="">
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit">LOGIN</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required="">
-
-      <label for="org">Organization</label>
-      <input type="text" name="org">
-
-      <label for="posi">Position</label>
-      <input type="text" name="posi">
-
-      <label for="Password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="Password" required="">
-
-      <label for="ConPassword"><b>Confirm Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="ConPassword" required="">    
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
